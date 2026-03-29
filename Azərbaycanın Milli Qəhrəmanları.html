@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#tarix -->
+<html lang="az"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azərbaycanın Milli Qəhrəmanları</title>
+<link href="./Azərbaycanın Milli Qəhrəmanları_files/css2" rel="stylesheet">
+<style>
+:root{
+  --blue:#0092BC;--red:#EF3340;--green:#509E2F;
+  --gold:#D4AF37;--gold2:#F2D060;
+  --cream:#F5F0E8;--bg:#04080E;--bg2:#090D1A;
+  --mut:rgba(245,240,232,.55);
+  --b1:rgba(212,175,55,.18);--b2:rgba(212,175,55,.50);
+  --fD:'Cinzel Decorative',serif;--fT:'Cinzel',serif;
+  --fB:'Lora',serif;--fU:'Oswald',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:var(--fB);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  height:66px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;transition:background .4s;
+}
+.nav.up{background:rgba(4,8,14,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--b1)}
+
+/* ── Correct AZ flag: BLUE / RED(crescent+8star) / GREEN ── */
+.azf{
+  display:flex;flex-direction:column;
+  width:40px;height:27px;border-radius:3px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 12px rgba(0,0,0,.5);flex-shrink:0;
+}
+.azf .ab{flex:1;background:#0092BC}
+.azf .ar{flex:1;background:#EF3340;position:relative;display:flex;align-items:center;justify-content:center}
+.azf .ag{flex:1;background:#509E2F}
+/* 8-pointed star + crescent in SVG — correct proportions */
+.azf .ar svg{position:absolute;width:16px;height:16px}
+
+.nlogo{display:flex;align-items:center;gap:13px}
+.nbr{font-family:var(--fT);font-size:14px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+.nl{display:flex;gap:32px;list-style:none}
+.nl a{font-family:var(--fU);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);transition:color .25s;position:relative}
+.nl a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nl a:hover{color:var(--gold)}.nl a:hover::after{width:100%}
+
+/* ══════════════════════════════════════
+   HERO SECTION — AZ FLAG AS BACKGROUND
+══════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;overflow:hidden;
+}
+
+/* Layer 1: The REAL Azerbaijan flag image — blurred, as background */
+.hero-flagbg{
+  position:absolute;inset:0;
+  background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/1280px-Flag_of_Azerbaijan.svg.png');
+  background-size:cover;background-position:center;
+  filter:blur(8px) brightness(.45) saturate(1.3);
+  transform:scale(1.05);/* hide blur edges */
+}
+
+/* Layer 2: Dark overlay gradient so text is readable */
+.hero-ov{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(105deg,rgba(4,8,14,.92) 30%,rgba(4,8,14,.70) 60%,rgba(4,8,14,.30) 100%),
+    linear-gradient(0deg,rgba(4,8,14,.6) 0%,transparent 40%);
+}
+
+/* Layer 3: Islamic geometric ornament — subtle gold grid */
+.hero-orn{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='rgba(212,175,55,0.07)' stroke-width='.6'%3E%3Crect x='10' y='10' width='60' height='60' transform='rotate(45 40 40)'/%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Ccircle cx='40' cy='40' r='26'/%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3Cline x1='40' y1='12' x2='40' y2='68'/%3E%3Cline x1='12' y1='40' x2='68' y2='40'/%3E%3Cline x1='18' y1='18' x2='62' y2='62'/%3E%3Cline x1='62' y1='18' x2='18' y2='62'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:80px;
+  mask-image:radial-gradient(ellipse 90% 90% at 55% 50%,black 15%,transparent 72%);
+  opacity:.6;
+}
+
+/* Layer 4: Color glow pools (blue/red/green from flag) */
+.hero-glow{position:absolute;inset:0;pointer-events:none}
+.gb{position:absolute;border-radius:50%;filter:blur(100px);animation:gd 9s ease-in-out infinite alternate}
+.gb.g1{width:500px;height:400px;top:-60px;right:5%;background:radial-gradient(circle,rgba(0,146,188,.20) 0%,transparent 70%)}
+.gb.g2{width:420px;height:320px;bottom:-30px;right:20%;background:radial-gradient(circle,rgba(80,158,47,.17) 0%,transparent 70%);animation-delay:3s}
+.gb.g3{width:580px;height:480px;top:15%;left:10%;background:radial-gradient(circle,rgba(239,51,64,.08) 0%,transparent 70%);animation-delay:6s}
+@keyframes gd{from{transform:translate(0,0)}to{transform:translate(22px,16px)}}
+
+/* Hero content */
+.hc{
+  position:relative;z-index:2;
+  max-width:1200px;margin:0 auto;
+  padding:0 52px;padding-top:66px;width:100%;
+}
+.hey{display:inline-flex;align-items:center;gap:14px;margin-bottom:18px;font-family:var(--fU);font-size:11px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fu .8s .15s forwards}
+.hey::before,.hey::after{content:'';width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));opacity:.6}
+.hey::after{background:linear-gradient(270deg,transparent,var(--gold))}
+
+.ht{font-family:var(--fD);font-weight:900;font-size:clamp(42px,8vw,96px);line-height:1;opacity:0;animation:fu 1s .3s forwards}
+.ht .tw{color:var(--cream)}
+.ht .tg{display:block;background:linear-gradient(135deg,var(--gold2),var(--gold),#9A7010);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ht .tr{display:block;font-size:.52em;letter-spacing:.08em;background:linear-gradient(135deg,#FF7080,var(--red),#7B0000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.hs{margin-top:10px;font-family:var(--fT);font-size:clamp(13px,1.8vw,18px);letter-spacing:.3em;text-transform:uppercase;color:rgba(245,240,232,.42);opacity:0;animation:fu .9s .46s forwards}
+.hd{margin-top:24px;max-width:480px;font-size:16px;line-height:1.88;color:var(--mut);opacity:0;animation:fu .9s .62s forwards}
+.hctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;opacity:0;animation:fu .9s .76s forwards}
+
+/* Right side: big flag SVG with proper 8-pointed star */
+.hright{
+  position:absolute;right:0;top:0;bottom:0;width:44%;
+  pointer-events:none;opacity:0;animation:fi 1.6s .5s forwards;
+  display:flex;align-items:center;justify-content:center;
+}
+.bigflag-box{position:relative;width:min(380px,34vw)}
+
+.bigflag{
+  width:100%;border-radius:5px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 0 80px rgba(0,146,188,.28),0 0 50px rgba(239,51,64,.18),0 50px 100px rgba(0,0,0,.65);
+  animation:bwave 5s ease-in-out infinite;
+  transform-origin:left center;
+}
+@keyframes bwave{
+  0%,100%{clip-path:polygon(0 0,100% 2%,100% 98%,0 100%);transform:perspective(700px) rotateY(-2deg)}
+  40%{clip-path:polygon(0 1.5%,100% 0,100% 100%,0 98.5%);transform:perspective(700px) rotateY(.5deg)}
+  70%{clip-path:polygon(0 0,100% 3%,100% 97%,0 100%);transform:perspective(700px) rotateY(1.5deg)}
+}
+.bf-b{display:block;width:100%;height:70px;background:linear-gradient(180deg,#1AABCC,#0092BC,#007BAA)}
+.bf-r{display:block;width:100%;height:70px;background:linear-gradient(180deg,#F56070,#EF3340,#C01828);position:relative;display:flex;align-items:center;justify-content:center}
+.bf-g{display:block;width:100%;height:70px;background:linear-gradient(180deg,#65BB40,#509E2F,#3A7820)}
+
+/* Flag symbol SVG — proper crescent + 8-pointed star */
+.bfsym{position:absolute;width:56px;height:56px}
+
+.bfglow{position:absolute;inset:-26px;z-index:-1;filter:blur(20px);
+  background:radial-gradient(ellipse 90% 35% at 50% 17%,rgba(0,146,188,.32) 0%,transparent 65%),
+             radial-gradient(ellipse 90% 35% at 50% 50%,rgba(239,51,64,.26) 0%,transparent 65%),
+             radial-gradient(ellipse 90% 35% at 50% 83%,rgba(80,158,47,.22) 0%,transparent 65%)}
+.bfd1{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(100% + 56px);height:calc(100% + 56px);border:1px solid rgba(212,175,55,.14);border-radius:4px;animation:ss 50s linear infinite}
+.bfd2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(100% + 96px);height:calc(100% + 96px);border:1px solid rgba(212,175,55,.07);border-radius:4px;animation:ss 80s linear infinite reverse}
+@keyframes ss{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* Scroll hint */
+.sh{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;opacity:0;animation:fu 1s 1.6s forwards}
+.sh span{font-family:var(--fU);font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:rgba(245,240,232,.28)}
+.sm{width:20px;height:33px;border:1px solid rgba(212,175,55,.38);border-radius:10px;display:flex;justify-content:center;padding-top:5px}
+.sd{width:3px;height:3px;background:var(--gold);border-radius:50%;animation:sb 1.9s ease-in-out infinite}
+@keyframes sb{0%,100%{transform:translateY(0);opacity:1}75%{transform:translateY(13px);opacity:0}}
+@keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+
+/* ══════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════ */
+.bp{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;background:linear-gradient(135deg,var(--red),#8B0000);color:#fff;font-family:var(--fU);font-size:12px;letter-spacing:.22em;text-transform:uppercase;border:none;cursor:pointer;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,11px 100%,0 calc(100% - 11px));transition:all .3s;box-shadow:0 0 26px rgba(239,51,64,.32)}
+.bp:hover{transform:translateY(-2px);box-shadow:0 0 46px rgba(239,51,64,.52)}
+.bs{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;background:transparent;color:var(--gold);border:1px solid var(--b2);font-family:var(--fU);font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,11px 100%,0 calc(100% - 11px));transition:all .3s}
+.bs:hover{background:rgba(212,175,55,.1);border-color:var(--gold);transform:translateY(-2px);box-shadow:0 0 24px rgba(212,175,55,.22)}
+
+/* ══════════════════════════════════════
+   STATS
+══════════════════════════════════════ */
+.sb2{position:relative;padding:40px 52px;border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);overflow:hidden}
+.sb2::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,146,188,.08),rgba(239,51,64,.09) 33%,rgba(80,158,47,.08) 66%,rgba(212,175,55,.05))}
+.si{position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.sit{text-align:center;padding:0 16px;border-right:1px solid var(--b1)}
+.sit:last-child{border-right:none}
+.sn{font-family:var(--fD);font-size:clamp(32px,5vw,54px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sl{margin-top:7px;font-family:var(--fU);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--mut)}
+
+/* ══════════════════════════════════════
+   SECTION COMMONS
+══════════════════════════════════════ */
+.sec{padding:88px 52px;max-width:1300px;margin:0 auto}
+.sh2{text-align:center;margin-bottom:54px}
+.se{display:inline-flex;align-items:center;gap:13px;margin-bottom:11px;font-family:var(--fU);font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
+.se::before,.se::after{content:'';width:25px;height:1px;background:var(--gold);opacity:.4}
+.st{font-family:var(--fD);font-size:clamp(24px,4vw,43px);font-weight:700;color:var(--cream);line-height:1.15}
+.st span{background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sr{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:15px}
+.sr::before,.sr::after{content:'';flex:1;max-width:88px;height:1px;background:linear-gradient(90deg,transparent,var(--b2))}
+.sr::after{background:linear-gradient(270deg,transparent,var(--b2))}
+.dm{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+
+/* ══════════════════════════════════════
+   HEROES SECTION — flag blur bg
+══════════════════════════════════════ */
+.hwrap{
+  position:relative;padding-top:92px;overflow:hidden;
+}
+/* Subtle blurred flag strip behind heroes section */
+.hwrap::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/1280px-Flag_of_Azerbaijan.svg.png');
+  background-size:cover;background-position:center 40%;
+  filter:blur(30px) brightness(.12) saturate(1.2);
+  transform:scale(1.1);
+}
+.hwrap::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(4,8,14,.82);
+}
+
+/* ── FILTER ── */
+.fw{position:relative;z-index:1;max-width:1300px;margin:0 auto 40px;padding:0 52px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.fb3{padding:8px 20px;background:transparent;color:var(--mut);border:1px solid var(--b1);font-family:var(--fU);font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .25s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.fb3:hover,.fb3.on{color:var(--gold);border-color:var(--gold);background:rgba(212,175,55,.09);box-shadow:0 0 16px rgba(212,175,55,.18)}
+
+/* ── HERO CARDS ── */
+.hg{position:relative;z-index:1;max-width:1300px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+
+.hcard{
+  position:relative;background:rgba(255,255,255,.038);
+  border:1px solid var(--b1);overflow:hidden;cursor:pointer;
+  transition:all .45s cubic-bezier(.23,1,.32,1);
+  clip-path:polygon(0 0,calc(100% - 17px) 0,100% 17px,100% 100%,17px 100%,0 calc(100% - 17px));
+}
+.hcard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(212,175,55,.05));opacity:0;transition:opacity .4s}
+.hcard:hover{transform:translateY(-7px);border-color:var(--b2);box-shadow:0 20px 54px rgba(0,0,0,.7),0 0 32px rgba(212,175,55,.14)}
+.hcard:hover::after{opacity:1}
+
+.ci{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,#0D1528,#080D18)}
+.ci img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s,filter .5s;filter:grayscale(10%) contrast(1.12) brightness(.88)}
+.hcard:hover .ci img{transform:scale(1.06);filter:grayscale(0%) contrast(1.14) brightness(1)}
+.cg{position:absolute;bottom:0;left:0;right:0;height:72%;background:linear-gradient(0,#04080E 0%,rgba(4,8,14,.5) 50%,transparent 100%)}
+.cc{position:absolute;top:11px;right:11px;padding:4px 10px;font-family:var(--fU);font-size:9px;letter-spacing:.2em;text-transform:uppercase;border-radius:2px}
+.ch{background:rgba(239,51,64,.85);color:#fff}
+.cs{background:rgba(0,146,188,.85);color:#fff}
+.cm{background:rgba(212,175,55,.85);color:#000}
+.ce{background:rgba(80,158,47,.85);color:#fff}
+
+.cb{padding:16px 20px 20px}
+.cn{font-family:var(--fT);font-size:18px;font-weight:700;color:var(--cream);line-height:1.2}
+.cy{margin-top:4px;font-family:var(--fU);font-size:11px;letter-spacing:.1em;color:var(--gold);opacity:.85}
+.cd{margin-top:8px;font-size:13px;line-height:1.65;color:var(--mut);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cbtn{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:7px 14px;background:transparent;color:var(--gold);border:1px solid var(--b2);font-family:var(--fU);font-size:10px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .25s;clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%)}
+.cbtn:hover{background:rgba(212,175,55,.1);box-shadow:0 0 13px rgba(212,175,55,.18)}
+.cbtn svg{width:11px;height:11px;transition:transform .2s}
+.cbtn:hover svg{transform:translateX(3px)}
+
+/* ══════════════════════════════════════
+   FEATURED — with Sheki palace pattern bg
+══════════════════════════════════════ */
+.featw{
+  position:relative;padding:78px 0;overflow:hidden;
+  border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);
+}
+/* Blurred AZ monument/heritage bg */
+.featw::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Maiden_Tower_Baku.jpg/800px-Maiden_Tower_Baku.jpg');
+  background-size:cover;background-position:center;
+  filter:blur(20px) brightness(.15) saturate(1.2);
+  transform:scale(1.06);
+}
+.featw::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(4,8,14,.78);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cg fill='none' stroke='rgba(212,175,55,0.055)' stroke-width='.7'%3E%3Cpolygon points='55,5 105,30 105,80 55,105 5,80 5,30'/%3E%3Cpolygon points='55,18 92,38 92,72 55,92 18,72 18,38'/%3E%3Ccircle cx='55' cy='55' r='14'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:110px;
+}
+.feati{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:74px;align-items:center}
+.fimw{position:relative}
+.ffr{position:relative;display:inline-block;width:100%}
+.ffr::before{content:'';position:absolute;top:-9px;left:-9px;right:9px;bottom:9px;border:1px solid var(--b2);clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,15px 100%,0 calc(100% - 15px))}
+.ffr::after{content:'';position:absolute;top:9px;left:9px;right:-9px;bottom:-9px;background:linear-gradient(135deg,rgba(239,51,64,.24),rgba(0,146,188,.14));clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,15px 100%,0 calc(100% - 15px));z-index:-1}
+.ffr img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,15px 100%,0 calc(100% - 15px));filter:contrast(1.1) sepia(7%)}
+.fbdg{position:absolute;top:18px;left:-16px;padding:5px 19px 5px 21px;background:linear-gradient(135deg,var(--red),#8B0000);font-family:var(--fU);font-size:9px;letter-spacing:.27em;text-transform:uppercase;color:#fff;clip-path:polygon(0 0,100% 0,calc(100% - 9px) 100%,0 100%);box-shadow:4px 4px 16px rgba(0,0,0,.4)}
+
+.fey{font-family:var(--fU);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:13px;display:flex;align-items:center;gap:10px}
+.fey::before{content:'';width:26px;height:1px;background:var(--gold)}
+.fnm{font-family:var(--fD);font-size:clamp(26px,4vw,48px);font-weight:900;color:var(--cream);line-height:1.1}
+.fyrs{margin-top:6px;font-family:var(--fT);font-size:14px;color:var(--gold);letter-spacing:.12em}
+.fbio{margin-top:20px;font-size:15px;line-height:1.88;color:var(--mut)}
+.flist{margin-top:22px;list-style:none;display:flex;flex-direction:column;gap:10px}
+.flist li{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6;color:var(--mut)}
+.flist li svg{flex-shrink:0;width:17px;height:17px;margin-top:2px;color:var(--gold)}
+
+/* ══════════════════════════════════════
+   TIMELINE
+══════════════════════════════════════ */
+.tls{
+  position:relative;padding:88px 0;overflow:hidden;
+}
+.tls::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Maiden_Tower_Baku.jpg/800px-Maiden_Tower_Baku.jpg');
+  background-size:cover;background-position:center 60%;
+  filter:blur(25px) brightness(.1) saturate(.8);
+  transform:scale(1.07);
+}
+.tls::after{content:'';position:absolute;inset:0;background:rgba(4,8,14,.85)}
+.tltr{position:relative;z-index:1;padding:0 52px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.tll{display:flex;min-width:max-content;padding:52px 0;position:relative}
+.tll::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--b2) 8%,var(--gold) 50%,var(--b2) 92%,transparent);transform:translateY(-50%)}
+.tli{display:flex;flex-direction:column;align-items:center;min-width:170px;padding:0 18px;cursor:pointer}
+.tli:nth-child(odd){flex-direction:column-reverse}
+.tld{width:11px;height:11px;background:var(--gold);border-radius:50%;border:3px solid var(--bg);z-index:1;flex-shrink:0;box-shadow:0 0 13px rgba(212,175,55,.6);transition:all .3s}
+.tli:hover .tld{transform:scale(1.6);box-shadow:0 0 24px rgba(212,175,55,.8)}
+.tlb{background:rgba(255,255,255,.04);border:1px solid var(--b1);padding:11px 14px;max-width:152px;transition:all .3s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.tli:hover .tlb{border-color:var(--gold);background:rgba(212,175,55,.07)}
+.tly{font-family:var(--fD);font-size:16px;font-weight:700;color:var(--gold);text-align:center}
+.tle{margin-top:3px;font-family:var(--fU);font-size:10px;letter-spacing:.05em;color:var(--mut);text-align:center;line-height:1.4}
+
+/* ══════════════════════════════════════
+   QUOTE
+══════════════════════════════════════ */
+.qw{
+  position:relative;padding:72px 52px;text-align:center;overflow:hidden;
+  border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);
+}
+.qw::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/1280px-Flag_of_Azerbaijan.svg.png');
+  background-size:cover;background-position:center;
+  filter:blur(18px) brightness(.18) saturate(1.4);
+  transform:scale(1.05);
+}
+.qw::after{content:'';position:absolute;inset:0;background:rgba(4,8,14,.7)}
+.qi{position:relative;z-index:1}
+.qt{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(18px,3vw,30px);color:var(--cream);max-width:740px;margin:0 auto;line-height:1.7}
+.qa{margin-top:20px;font-family:var(--fU);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+
+/* ══════════════════════════════════════
+   MOVIES
+══════════════════════════════════════ */
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.mc{position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--b1);aspect-ratio:2/3;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 13px,100% 100%,13px 100%,0 calc(100% - 13px));transition:all .4s}
+.mc:hover{border-color:var(--b2);transform:translateY(-5px);box-shadow:0 14px 46px rgba(0,0,0,.6),0 0 16px rgba(212,175,55,.1)}
+.mcb{position:absolute;inset:0}
+.mcp{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.7);width:43px;height:43px;background:rgba(239,51,64,.82);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:all .3s}
+.mc:hover .mcp{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.mco{position:absolute;inset:0;background:linear-gradient(0,rgba(4,8,14,.96) 0%,rgba(4,8,14,.27) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.mcy{font-family:var(--fU);font-size:10px;letter-spacing:.2em;color:var(--gold)}
+.mct{margin-top:3px;font-family:var(--fT);font-size:14px;font-weight:700;color:var(--cream);line-height:1.3}
+.mctp{margin-top:6px;display:inline-block;padding:2px 9px;background:rgba(239,51,64,.75);font-family:var(--fU);font-size:9px;letter-spacing:.14em;color:#fff}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  position:relative;overflow:hidden;
+  background:var(--bg);border-top:1px solid var(--b1);padding:56px 52px;
+}
+footer::before{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/1280px-Flag_of_Azerbaijan.svg.png');
+  background-size:cover;background-position:center;
+  filter:blur(30px) brightness(.07) saturate(.8);
+  transform:scale(1.1);
+}
+.fin{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px}
+.fbrp p{margin-top:12px;font-size:14px;line-height:1.75;color:var(--mut)}
+.fc h4{font-family:var(--fU);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fc ul li a{font-family:var(--fU);font-size:13px;color:var(--mut);transition:color .2s;letter-spacing:.05em}
+.fc ul li a:hover{color:var(--gold)}
+.fbt{position:relative;z-index:1;max-width:1200px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between}
+.fbt p{font-family:var(--fU);font-size:11px;letter-spacing:.1em;color:rgba(245,240,232,.24)}
+
+/* flag widget reusable */
+.flagw{
+  display:flex;flex-direction:column;
+  border-radius:3px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 2px 10px rgba(0,0,0,.4);
+}
+.flagw .fb4{background:#0092BC}
+.flagw .fr4{background:#EF3340;position:relative;display:flex;align-items:center;justify-content:center}
+.flagw .fg4{background:#509E2F}
+.flagw .fr4 svg{position:absolute}
+
+/* ══════════════════════════════════════
+   MODAL
+══════════════════════════════════════ */
+.mov{position:fixed;inset:0;z-index:2000;background:rgba(4,8,14,.94);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+.mov.open{opacity:1;pointer-events:all}
+.modal{background:var(--bg2);border:1px solid var(--b2);max-width:840px;width:100%;max-height:90vh;overflow-y:auto;position:relative;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));transform:translateY(26px);transition:transform .35s;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.mov.open .modal{transform:translateY(0)}
+.mhd{display:grid;grid-template-columns:190px 1fr}
+.mi{width:100%;height:280px;object-fit:cover;object-position:top;filter:grayscale(10%) contrast(1.1)}
+.mht{padding:28px;background:linear-gradient(135deg,rgba(239,51,64,.07),transparent);display:flex;flex-direction:column;justify-content:center}
+.mcat{display:inline-block;padding:4px 12px;font-family:var(--fU);font-size:9px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:11px;width:fit-content}
+.mnm{font-family:var(--fD);font-size:clamp(20px,3vw,34px);font-weight:900;color:var(--cream);line-height:1.1}
+.myr{margin-top:5px;font-family:var(--fT);font-size:14px;color:var(--gold);letter-spacing:.1em}
+.mbd{padding:24px 28px 28px;border-top:1px solid var(--b1)}
+.mbio{font-size:14.5px;line-height:1.88;color:var(--mut)}
+.mac{margin-top:20px;padding-top:20px;border-top:1px solid var(--b1)}
+.mac h4{font-family:var(--fU);font-size:10px;letter-spacing:.27em;text-transform:uppercase;color:var(--gold);margin-bottom:13px}
+.mac ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.mac li{display:flex;gap:10px;font-size:13px;line-height:1.6;color:var(--mut)}
+.mac li::before{content:'◆';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:4px}
+.mcl{position:absolute;top:14px;right:14px;width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid var(--b1);color:var(--cream);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.mcl:hover{background:rgba(239,51,64,.2);border-color:var(--red)}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(32px);transition:opacity .7s,transform .7s}
+.rev.vis{opacity:1;transform:translateY(0)}
+
+/* responsive */
+@media(max-width:1024px){
+  .nav,.sb2,.sec,.fw,.hg,.tltr,.qw,.feati,footer,.fin{padding-left:24px;padding-right:24px}
+  .feati{grid-template-columns:1fr;gap:36px}
+  .fin{grid-template-columns:1fr 1fr;gap:28px}
+  .si{grid-template-columns:repeat(2,1fr)}
+  .hright{display:none}
+}
+@media(max-width:768px){
+  .nl{display:none}
+  .hc{padding-left:18px;padding-right:18px}
+  .mg{grid-template-columns:repeat(2,1fr)}
+  .fin{grid-template-columns:1fr}
+  .mhd{grid-template-columns:1fr}
+  .mi{height:200px}
+  .sit:nth-child(odd){border-right:1px solid var(--b1)}
+  .sit:nth-child(even){border-right:none}
+}
+</style>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="nav" id="nav">
+  <div class="nlogo">
+    <!-- AZ Flag: BLUE / RED+symbol / GREEN — correct SVG crescent+8star -->
+    <div class="azf">
+      <div class="ab"></div>
+      <div class="ar">
+        <svg viewBox="0 0 36 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <!-- Crescent: large arc minus offset arc -->
+          <path d="M14 2 C8 2 3.5 7 3.5 12 C3.5 17 8 22 14 22 C10 22 6.5 17.5 6.5 12 C6.5 6.5 10 2 14 2Z"></path>
+          <!-- 8-pointed star (proper 8 points) -->
+          <path d="M24 5 L25.4 9.2 L29.8 8.5 L27.2 12 L29.8 15.5 L25.4 14.8 L24 19 L22.6 14.8 L18.2 15.5 L20.8 12 L18.2 8.5 L22.6 9.2 Z"></path>
+        </svg>
+      </div>
+      <div class="ag"></div>
+    </div>
+    <span class="nbr">Milli Qəhrəmanlar</span>
+  </div>
+  <ul class="nl">
+    <li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#qeh">Qəhrəmanlar</a></li>
+    <li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#feat">Seçilmiş</a></li>
+    <li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#tarix">Xronologiya</a></li>
+    <li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#film">Filmlər</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO SECTION ══ -->
+<section class="hero">
+  <!-- Real AZ flag image as blurred background -->
+  <div class="hero-flagbg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-orn"></div>
+  <div class="hero-glow">
+    <div class="gb g1"></div><div class="gb g2"></div><div class="gb g3"></div>
+  </div>
+
+  <div class="hc">
+    <div class="hey">Azərbaycan Torpağının Şərəfli Övladları</div>
+    <h1 class="ht">
+      <span class="tw">MİLLİ</span>
+      <span class="tg">QƏHRƏMANLAR</span>
+      <span class="tr">ƏBƏD YAŞAR</span>
+    </h1>
+    <p class="hs">Ölməz Ruhlar &nbsp;·&nbsp; Əbədi Şöhrət &nbsp;·&nbsp; Şanlı Tarix</p>
+    <p class="hd">Azərbaycan torpağının qəhrəman övladları — döyüş meydanlarında, elm dünyasında, sənət aləmində xalqının taleyini dəyişdirən böyük şəxsiyyətlər. Onların ruhu hər daşda, hər nəfəsdə yaşayır.</p>
+    <div class="hctas">
+      <a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#qeh" class="bp">
+        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+        Qəhrəmanları Kəşf Et
+      </a>
+      <a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#tarix" class="bs">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        Tarixi Zaman Xətti
+      </a>
+    </div>
+  </div>
+
+  <!-- Right: Big animated flag (SVG — correct blue/red/green + proper 8-star) -->
+  <div class="hright">
+    <div class="bigflag-box">
+      <div class="bfglow"></div>
+      <div class="bfd1"></div>
+      <div class="bfd2"></div>
+      <div class="bigflag">
+        <span class="bf-b"></span>
+        <span class="bf-r">
+          <!-- Proper crescent (open left) + 8-pointed star -->
+          <svg class="bfsym" viewBox="0 0 110 110" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <!-- Crescent: correct orientation -->
+            <path d="M46 12 C24 12 8 30 8 55 C8 80 24 98 46 98 C32 96 20 77 20 55 C20 33 32 14 46 12Z"></path>
+            <!-- 8-pointed star at center-right -->
+            <path d="M76 28 L79.8 40 L92 38 L84.5 48 L92 58 L79.8 56 L76 68 L72.2 56 L60 58 L67.5 48 L60 38 L72.2 40 Z"></path>
+          </svg>
+        </span>
+        <span class="bf-g"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh">
+    <div class="sm"><div class="sd"></div></div>
+    <span>Aşağı</span>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="sb2">
+  <div class="si">
+    <div class="sit"><div class="sn">150+</div><div class="sl">Milli Qəhrəman</div></div>
+    <div class="sit"><div class="sn">14</div><div class="sl">Əsr Boyunca</div></div>
+    <div class="sit"><div class="sn">48+</div><div class="sl">Tarixi Hadisə</div></div>
+    <div class="sit"><div class="sn">27+</div><div class="sl">Sənədli Film</div></div>
+  </div>
+</div>
+
+<!-- ══ HEROES ══ -->
+<div class="hwrap" id="qeh">
+  <div class="sec" style="position:relative;z-index:1;padding-bottom:0">
+    <div class="sh2 rev vis">
+      <div class="se">Şanlı Övladlar</div>
+      <h2 class="st">Böyük <span>Qəhrəmanlar</span></h2>
+      <div class="sr"><div class="dm"></div></div>
+    </div>
+  </div>
+  <div class="fw rev vis">
+    <button class="fb3 on" data-f="all">Hamısı</button>
+    <button class="fb3" data-f="h">⚔ Hərbi</button>
+    <button class="fb3" data-f="s">🏛 Siyasi</button>
+    <button class="fb3" data-f="m">🎭 Mədəniyyət</button>
+    <button class="fb3" data-f="e">🔬 Elm</button>
+  </div>
+  <div class="hg" id="hgrid">
+    <div class="hcard rev vis" onclick="openM(0)" style="transition-delay:0s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37" alt="Şah İsmayıl Xətai" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=%C5%9Eah%20%C4%B0smay%C4%B1l%20X%C9%99tai&#39;">
+        <div class="cg"></div>
+        <span class="cc cs">Siyasi / Mədəniyyət</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Şah İsmayıl Xətai</h3>
+        <p class="cy">1487 — 1524</p>
+        <p class="cd">Səfəvi imperatorluğunun qurucusu, şair hökmdar. Azərbaycan dilini saray dili elan etdi.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hcard rev vis" onclick="openM(1)" style="transition-delay:0.07s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(1)" alt="Cavanşir" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=Cavan%C5%9Fir&#39;">
+        <div class="cg"></div>
+        <span class="cc ch">Hərbi</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Cavanşir</h3>
+        <p class="cy">VII əsr (637–680)</p>
+        <p class="cd">Albaniya çarlığının böyük sərkərdəsi. Ərəb işğalına qarşı müqavimətin simvolu.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hcard rev vis" onclick="openM(2)" style="transition-delay:0.14s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(2)" alt="Üzeyir Hacıbəyov" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=%C3%9Czeyir%20Hac%C4%B1b%C9%99yov&#39;">
+        <div class="cg"></div>
+        <span class="cc cm">Mədəniyyət</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Üzeyir Hacıbəyov</h3>
+        <p class="cy">1885 — 1948</p>
+        <p class="cd">Şərqin ilk operasının müəllifi. Azərbaycan musiqi mədəniyyətinin atası.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hcard rev vis" onclick="openM(3)" style="transition-delay:0.21000000000000002s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(3)" alt="Hüseyn Cavid" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=H%C3%BCseyn%20Cavid&#39;">
+        <div class="cg"></div>
+        <span class="cc cm">Mədəniyyət</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Hüseyn Cavid</h3>
+        <p class="cy">1882 — 1941</p>
+        <p class="cd">Azərbaycan romantizminin ən parlaq nümayəndəsi. 'İblis', 'Şeyx Sənan' dramlarının müəllifi.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hcard rev vis" onclick="openM(4)" style="transition-delay:0.28s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(4)" alt="Mübariz İbrahimov" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=M%C3%BCbariz%20%C4%B0brahimov&#39;">
+        <div class="cg"></div>
+        <span class="cc ch">Milli Qəhrəman</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Mübariz İbrahimov</h3>
+        <p class="cy">1988 — 2010</p>
+        <p class="cd">Azərbaycanın Milli Qəhrəmanı. 2010-cu ildə tək başına düşmən mövqeyinə hücum çəkdi.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hcard rev vis" onclick="openM(5)" style="transition-delay:0.35000000000000003s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(5)" alt="Albert Aqarunov" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=Albert%20Aqarunov&#39;">
+        <div class="cg"></div>
+        <span class="cc ch">Milli Qəhrəman</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Albert Aqarunov</h3>
+        <p class="cy">1974 — 1992</p>
+        <p class="cd">18 yaşında canını Azərbaycan üçün fəda edən milli qəhrəman. Milli birliyimizin simvolu.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hcard rev vis" onclick="openM(6)" style="transition-delay:0.42000000000000004s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(6)" alt="Mikayıl Müşfiq" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=Mikay%C4%B1l%20M%C3%BC%C5%9Ffiq&#39;">
+        <div class="cg"></div>
+        <span class="cc cm">Mədəniyyət</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Mikayıl Müşfiq</h3>
+        <p class="cy">1908 — 1938</p>
+        <p class="cd">Azərbaycan şeirinin ən lirik sesi. 30 yaşında güllələndi, sözləri əbədi yaşadı.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hcard rev vis" onclick="openM(7)" style="transition-delay:0.49000000000000005s">
+      <div class="ci">
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(7)" alt="Nəriman Nərimanov" loading="lazy" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=N%C9%99riman%20N%C9%99rimanov&#39;">
+        <div class="cg"></div>
+        <span class="cc cs">Siyasi / Mədəniyyət</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">Nəriman Nərimanov</h3>
+        <p class="cy">1870 — 1925</p>
+        <p class="cd">Həkim, yazıçı, inqilabçı. Azərbaycanın ilk dövlət başçılarından biri.</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div></div>
+  <div style="height:88px;position:relative;z-index:1"></div>
+</div>
+
+<!-- ══ FEATURED ══ -->
+<div class="featw" id="feat">
+  <div class="feati">
+    <div class="fimw rev vis">
+      <div class="ffr">
+        <div class="fbdg">Seçilmiş Qəhrəman</div>
+        <img src="./Azərbaycanın Milli Qəhrəmanları_files/D4AF37(8)" alt="Şah İsmayıl Xətai" onerror="this.src=&#39;https://placehold.co/400x530/090D1A/D4AF37?text=Şah+İsmayıl&#39;">
+      </div>
+    </div>
+    <div class="rev vis">
+      <div class="fey">Xüsusi Bölmə</div>
+      <h2 class="fnm">Şah İsmayıl Xətai</h2>
+      <p class="fyrs">1487 — 1524</p>
+      <p class="fbio">Azərbaycan tarixinin ən parlaq simalarından biri olan Şah İsmayıl I, 1501-ci ildə Səfəvi dövlətini qurdu. O, həm qüdrətli bir hökmdar, həm də dərin hissli bir şair idi. "Xətai" təxəllüsü ilə yazdığı şeirlər Azərbaycan ədəbiyyatının zirvəsi sayılır.</p>
+      <ul class="flist">
+        <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Səfəvi imperatorluğunun banisi — Azərbaycan dövlətçiliyinin əsasını qoydu</li>
+        <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'Dəhnamə' poemasının müəllifi — Azərbaycan dilini saray dili elan etdi</li>
+        <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Azərbaycan mədəniyyəti, incəsənəti və memarlığını zirvəyə çatdırdı</li>
+      </ul>
+      <div style="margin-top:26px"><button class="bp" onclick="openM(0)">Ətraflı oxu</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TIMELINE ══ -->
+<section class="tls" id="tarix">
+  <div class="sec" style="position:relative;z-index:1;padding-bottom:0">
+    <div class="sh2 rev">
+      <div class="se">Tarixi Zaman Xətti</div>
+      <h2 class="st">Şanlı <span>Tariximiz</span></h2>
+      <div class="sr"><div class="dm"></div></div>
+    </div>
+  </div>
+  <div class="tltr" style="margin-top:48px">
+    <div class="tll" id="tll"><div class="tli"><div class="tlb"><div class="tly">VII əsr</div><div class="tle">Cavanşir — Albaniya müdafiəsi</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1501</div><div class="tle">Şah İsmayıl — Səfəvi dövləti</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1724</div><div class="tle">Qarabağın müdafiəsi</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1828</div><div class="tle">Türkmənçay müqaviləsi</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1908</div><div class="tle">Şərqin ilk operası</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1918</div><div class="tle">ADR — Azərbaycan müstəqilliyi</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1920</div><div class="tle">Nərimanov — dövlət rəhbəri</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1938</div><div class="tle">Müşfiq — repressiya qurbanı</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1941</div><div class="tle">Hüseyn Cavid sürgünü</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1991</div><div class="tle">İstiqlal bərpası</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">1992</div><div class="tle">Albert Aqarunov şəhid oldu</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">2010</div><div class="tle">Mübariz İbrahimov şəhid oldu</div></div><div class="tld"></div></div><div style="width: 32px; flex-shrink: 0;"></div><div class="tli"><div class="tlb"><div class="tly">2020</div><div class="tle">44 Günlük Zəfər</div></div><div class="tld"></div></div></div>
+  </div>
+</section>
+
+<!-- ══ QUOTE ══ -->
+<div class="qw rev">
+  <div class="qi">
+    <p class="qt">"Bu torpaq böyük insanlar yetişdirib. Onların qanı bu torpağa hopub, ruhları isə hər nəfəsimizdə yaşayır. Azərbaycanlı olmaq — qürur, mübarizə və sevginin tərənnümüdür."</p>
+    <p class="qa">— Azərbaycan Xalq Hikməti</p>
+  </div>
+</div>
+
+<!-- ══ MOVIES ══ -->
+<section id="film" class="sec">
+  <div class="sh2 rev">
+    <div class="se">Sənədli Kino</div>
+    <h2 class="st">Filmlər &amp; <span>Sənədlilər</span></h2>
+    <div class="sr"><div class="dm"></div></div>
+  </div>
+  <div class="mg rev" id="mgrid">
+    <div class="mc">
+      <div class="mcb" style="background:linear-gradient(160deg,#3D0000 0%,#0A0505 100%)"></div>
+      <div class="mcp"><svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+      <div class="mco"><p class="mcy">1937</p><h3 class="mct">Koroğlu</h3><span class="mctp">Bədii Film</span></div>
+    </div>
+    <div class="mc">
+      <div class="mcb" style="background:linear-gradient(160deg,#3D2800 0%,#0A0800 100%)"></div>
+      <div class="mcp"><svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+      <div class="mco"><p class="mcy">1979</p><h3 class="mct">Babək</h3><span class="mctp">Bədii Film</span></div>
+    </div>
+    <div class="mc">
+      <div class="mcb" style="background:linear-gradient(160deg,#002814 0%,#040E07 100%)"></div>
+      <div class="mcp"><svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+      <div class="mco"><p class="mcy">1985</p><h3 class="mct">Xətai</h3><span class="mctp">Bədii Film</span></div>
+    </div>
+    <div class="mc">
+      <div class="mcb" style="background:linear-gradient(160deg,#001840 0%,#04060F 100%)"></div>
+      <div class="mcp"><svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+      <div class="mco"><p class="mcy">2021</p><h3 class="mct">Üzeyir Hacıbəyov</h3><span class="mctp">Sənədli Film</span></div>
+    </div>
+    <div class="mc">
+      <div class="mcb" style="background:linear-gradient(160deg,#3A0000 0%,#0A0202 100%)"></div>
+      <div class="mcp"><svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+      <div class="mco"><p class="mcy">2011</p><h3 class="mct">Mübariz</h3><span class="mctp">Sənədli Film</span></div>
+    </div>
+    <div class="mc">
+      <div class="mcb" style="background:linear-gradient(160deg,#2A2200 0%,#090800 100%)"></div>
+      <div class="mcp"><svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+      <div class="mco"><p class="mcy">2004</p><h3 class="mct">Hüseyn Cavid</h3><span class="mctp">Sənədli Film</span></div>
+    </div></div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="fin">
+    <div class="fbrp">
+      <!-- Correct footer flag -->
+      <div class="flagw" style="width:44px;height:30px">
+        <div class="fb4" style="flex:1"></div>
+        <div class="fr4" style="flex:1">
+          <svg viewBox="0 0 36 24" fill="white" style="position:absolute;width:14px;height:14px" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2 C8 2 3.5 7 3.5 12 C3.5 17 8 22 14 22 C10 22 6.5 17.5 6.5 12 C6.5 8.5 10 2 14 2Z"></path>
+            <path d="M24 5 L25.4 9.2 L29.8 8.5 L27.2 12 L29.8 15.5 L25.4 14.8 L24 19 L22.6 14.8 L18.2 15.5 L20.8 12 L18.2 8.5 L22.6 9.2 Z"></path>
+          </svg>
+        </div>
+        <div class="fg4" style="flex:1"></div>
+      </div>
+      <span style="font-family:var(--fT);font-size:15px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;display:block;margin-top:11px">Milli Qəhrəmanlar</span>
+      <p>Azərbaycan xalqının şanlı tarixini, qəhrəman övladlarını gələcək nəsillərə çatdırmaq missiyamızdır.</p>
+    </div>
+    <div class="fc"><h4>Kəşf Et</h4><ul><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#qeh">Hərbi Qəhrəmanlar</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#qeh">Siyasi Liderlər</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#qeh">Mədəniyyət Ustadları</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#qeh">Elm Adamları</a></li></ul></div>
+    <div class="fc"><h4>Tarix</h4><ul><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#tarix">Qədim Dövr</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#tarix">Orta Əsrlər</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#tarix">Müasir Dövr</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#tarix">Müstəqillik</a></li></ul></div>
+    <div class="fc"><h4>Media</h4><ul><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#film">Sənədli Filmlər</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#">Fotoqalereya</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#">Arxiv</a></li><li><a href="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html#">Haqqında</a></li></ul></div>
+  </div>
+  <div class="fbt">
+    <p>© 2026 Milli Qəhrəmanlar. Bütün hüquqlar qorunur.</p>
+    <div class="flagw" style="width:40px;height:27px">
+      <div class="fb4" style="flex:1"></div>
+      <div class="fr4" style="flex:1">
+        <svg viewBox="0 0 36 24" fill="white" style="position:absolute;width:12px;height:12px" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2 C8 2 3.5 7 3.5 12 C3.5 17 8 22 14 22 C10 22 6.5 17.5 6.5 12 C6.5 8.5 10 2 14 2Z"></path>
+          <path d="M24 5 L25.4 9.2 L29.8 8.5 L27.2 12 L29.8 15.5 L25.4 14.8 L24 19 L22.6 14.8 L18.2 15.5 L20.8 12 L18.2 8.5 L22.6 9.2 Z"></path>
+        </svg>
+      </div>
+      <div class="fg4" style="flex:1"></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ MODAL ══ -->
+<div class="mov" id="mov" onclick="co(event)">
+  <div class="modal" id="modal">
+    <button class="mcl" onclick="closeM()">✕</button>
+    <div class="mhd">
+      <img id="mimg" src="file:///C:/Users/HPLAPTOP/Downloads/milli_qehremanlar_v3.html" alt="">
+      <div class="mht">
+        <span class="mcat" id="mcat2"></span>
+        <h2 class="mnm" id="mnm2"></h2>
+        <p class="myr" id="myr2"></p>
+      </div>
+    </div>
+    <div class="mbd">
+      <p class="mbio" id="mbio2"></p>
+      <div class="mac"><h4>Əsas Qəhrəmanlıqlar &amp; Nailiyyətlər</h4><ul id="mach2"></ul></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════
+   DATA — Real Wikipedia photo URLs
+═══════════════════════════════════ */
+const H=[
+  {
+    n:"Şah İsmayıl Xətai", y:"1487 — 1524", c:"s", cl:"cs", lb:"Siyasi / Mədəniyyət",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Shah_Ismail_I.jpg/400px-Shah_Ismail_I.jpg",
+    d:"Səfəvi imperatorluğunun qurucusu, şair hökmdar. Azərbaycan dilini saray dili elan etdi.",
+    bio:"Şah İsmayıl I (Xətai), 1501-ci ildə Azərbaycan-türk Səfəvi sülaləsini quraraq geniş əraziləri vahid dövlət çərçivəsində birləşdirdi. Təbriz şəhərini paytaxta çevirdi. 'Xətai' təxəllüsü ilə yazdığı şeirlər Azərbaycan ədəbiyyatının şah əsərləridir.",
+    a:["Səfəvi imperatorluğunu 1501-ci ildə qurdu","'Dəhnamə' və 'Nəsihətnamə' əsərlərinin müəllifi","Azərbaycan türkcəsini saray dili elan etdi","İncəsənəti, memarlığı və elmi himayə etdi","Çaldıran döyüşündə qəhrəmancasına müqavimət göstərdi"]
+  },
+  {
+    n:"Cavanşir", y:"VII əsr (637–680)", c:"h", cl:"ch", lb:"Hərbi",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Javanshir.jpg/400px-Javanshir.jpg",
+    d:"Albaniya çarlığının böyük sərkərdəsi. Ərəb işğalına qarşı müqavimətin simvolu.",
+    bio:"Cavanşir Albaniya çarlığının hökmdarı olmuş, ərəb ordularına qarşı qəhrəmancasına müqavimət göstərmiş görkəmli Azərbaycan sərkərdəsidir. Konstantinopol imperatoru Konstantin II ilə diplomatik münasibət qurmuşdur.",
+    a:["Albaniya çarlığını ərəb işğalından qorudu","Konstantinopol imperatoru ilə diplomatik əlaqələr qurdu","Çin hökmdarı Tang Gaozong ilə də əlaqə saxladı","Azərbaycan torpaqlarının müdafiəsini öz canından üstün tutdu"]
+  },
+  {
+    n:"Üzeyir Hacıbəyov", y:"1885 — 1948", c:"m", cl:"cm", lb:"Mədəniyyət",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Uzeyir_Hajibeyov.jpg/400px-Uzeyir_Hajibeyov.jpg",
+    d:"Şərqin ilk operasının müəllifi. Azərbaycan musiqi mədəniyyətinin atası.",
+    bio:"Üzeyir Hacıbəyov 1908-ci ildə 'Leyli və Məcnun' operasını yaratmaqla bütün Şərqdə ilk operanın müəllifi oldu. 'Koroğlu' operası xalq qəhrəmanlığının zirvəsidir. Azərbaycan Dövlət Himninin musiqisini bəstələdi.",
+    a:["'Leyli və Məcnun' (1908) — Şərqin ilk operası","'Koroğlu' — qəhrəmanlıq eposunun zirvəsi","Azərbaycan Dövlət Himninin musiqisini bəstələdi","Konservatoriyasının qurucusu","Muğam ilə Avropa klassik musiqisini vəhdətdə birləşdirdi"]
+  },
+  {
+    n:"Hüseyn Cavid", y:"1882 — 1941", c:"m", cl:"cm", lb:"Mədəniyyət",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Huseyn_Cavid.jpg/400px-Huseyn_Cavid.jpg",
+    d:"Azərbaycan romantizminin ən parlaq nümayəndəsi. 'İblis', 'Şeyx Sənan' dramlarının müəllifi.",
+    bio:"Hüseyn Cavid (1882–1941) Azərbaycan ədəbiyyatının romantizm cərəyanının ən görkəmli nümayəndəsidir. Stalin repressiyasının qurbanı olan şair Sibirə sürgün edilmiş, orada həyatını itirmişdir.",
+    a:["'İblis' (1918) dramı — fəlsəfi fikrin zirvəsi","'Şeyx Sənan', 'Topal Teymur', 'Knyaz' əsərləri","Azərbaycan romantik şeirinin banisi","Stalin repressiyasına baxmayaraq xalqının yaddaşında əbədi yaşadı"]
+  },
+  {
+    n:"Mübariz İbrahimov", y:"1988 — 2010", c:"h", cl:"ch", lb:"Milli Qəhrəman",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Mubariz_Ibrahimov.jpg/400px-Mubariz_Ibrahimov.jpg",
+    d:"Azərbaycanın Milli Qəhrəmanı. 2010-cu ildə tək başına düşmən mövqeyinə hücum çəkdi.",
+    bio:"Mübariz İbrahimov 2010-cu il iyunun 18-də gecə işğal altındakı Aşağı Əskipara kəndinə tək başına hücum edərək düşmən mövqelərini dağıtmış, qəhrəmancasına həlak olmuşdur. Ölümündən sonra Milli Qəhrəman adı verilmişdir.",
+    a:["Azərbaycan Respublikasının Milli Qəhrəmanı","Tək başına düşmən mövqeyinə gecə hücumu","Adına məktəblər, küçələr, meydanlar adlandırılıb","Azərbaycan gənclərinin milli qürur simvoluna çevrildi"]
+  },
+  {
+    n:"Albert Aqarunov", y:"1974 — 1992", c:"h", cl:"ch", lb:"Milli Qəhrəman",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Albert_Agarunov.jpg/400px-Albert_Agarunov.jpg",
+    d:"18 yaşında canını Azərbaycan üçün fəda edən milli qəhrəman. Milli birliyimizin simvolu.",
+    bio:"Albert Aqarunov cəmi 18 yaşında Qarabağ müharibəsində Azərbaycan uğrunda canını fəda etmiş Azərbaycan yəhudi döyüşçüsüdür. Milli birliyin əbədi simvolu.",
+    a:["Azərbaycan Respublikasının Milli Qəhrəmanı","Azərbaycan yəhudi icmasından ilk milli qəhrəman","Milli birliyin əbədi simvolu","Adına Bakıda məktəb adlandırılıb"]
+  },
+  {
+    n:"Mikayıl Müşfiq", y:"1908 — 1938", c:"m", cl:"cm", lb:"Mədəniyyət",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Mikayil_Mushfig.jpg/400px-Mikayil_Mushfig.jpg",
+    d:"Azərbaycan şeirinin ən lirik sesi. 30 yaşında güllələndi, sözləri əbədi yaşadı.",
+    bio:"Mikayıl Müşfiq (1908–1938) Azərbaycan ədəbiyyatının romantik ruhlu lirik şairidir. 1938-ci ildə Stalin repressiyası zamanı həbs edilmiş və güllələnmişdir. Ölüm hökmü 1956-da ləğv edildi.",
+    a:["Azərbaycan lirik şeirinin şah nümunələri","'Oxu, tar, oxu' kimi ölməz şeirlər","Stalin repressiyasının qurbanı","1956-da postyüm bəraəti verildi","Adına Bakıda küçə adlandırıldı"]
+  },
+  {
+    n:"Nəriman Nərimanov", y:"1870 — 1925", c:"s", cl:"cs", lb:"Siyasi / Mədəniyyət",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Nariman_Narimanov.jpg/400px-Nariman_Narimanov.jpg",
+    d:"Həkim, yazıçı, inqilabçı. Azərbaycanın ilk dövlət başçılarından biri.",
+    bio:"Nəriman Nərimanov (1870–1925) həm həkim, həm yazıçı, həm dövlət adamı idi. Azərbaycanın müstəqilliyini və xalqın maarifini həyatının məqsədi saymışdır. 'Bahadur və Sona' romanının müəllifidir.",
+    a:["Azərbaycan SSR-in ilk rəhbəri (1920–1922)","SSRİ MİK sədrinin müavini","'Bahadur və Sona' romanının müəllifi","Kremlinin divarı ətrafında dəfn edilmiş yeganə azərbaycanlı"]
+  }
+];
+
+const MOVIES=[
+  {ti:"Koroğlu",yr:"1937",tp:"Bədii Film",g:"linear-gradient(160deg,#3D0000 0%,#0A0505 100%)"},
+  {ti:"Babək",yr:"1979",tp:"Bədii Film",g:"linear-gradient(160deg,#3D2800 0%,#0A0800 100%)"},
+  {ti:"Xətai",yr:"1985",tp:"Bədii Film",g:"linear-gradient(160deg,#002814 0%,#040E07 100%)"},
+  {ti:"Üzeyir Hacıbəyov",yr:"2021",tp:"Sənədli Film",g:"linear-gradient(160deg,#001840 0%,#04060F 100%)"},
+  {ti:"Mübariz",yr:"2011",tp:"Sənədli Film",g:"linear-gradient(160deg,#3A0000 0%,#0A0202 100%)"},
+  {ti:"Hüseyn Cavid",yr:"2004",tp:"Sənədli Film",g:"linear-gradient(160deg,#2A2200 0%,#090800 100%)"},
+];
+
+const TL=[
+  {yr:"VII əsr",ev:"Cavanşir — Albaniya müdafiəsi"},
+  {yr:"1501",ev:"Şah İsmayıl — Səfəvi dövləti"},
+  {yr:"1724",ev:"Qarabağın müdafiəsi"},
+  {yr:"1828",ev:"Türkmənçay müqaviləsi"},
+  {yr:"1908",ev:"Şərqin ilk operası"},
+  {yr:"1918",ev:"ADR — Azərbaycan müstəqilliyi"},
+  {yr:"1920",ev:"Nərimanov — dövlət rəhbəri"},
+  {yr:"1938",ev:"Müşfiq — repressiya qurbanı"},
+  {yr:"1941",ev:"Hüseyn Cavid sürgünü"},
+  {yr:"1991",ev:"İstiqlal bərpası"},
+  {yr:"1992",ev:"Albert Aqarunov şəhid oldu"},
+  {yr:"2010",ev:"Mübariz İbrahimov şəhid oldu"},
+  {yr:"2020",ev:"44 Günlük Zəfər"},
+];
+
+function renderH(f='all'){
+  const list=f==='all'?H:H.filter(h=>h.c===f);
+  document.getElementById('hgrid').innerHTML=list.map((h,i)=>`
+    <div class="hcard rev" onclick="openM(${H.indexOf(h)})" style="transition-delay:${i*.07}s">
+      <div class="ci">
+        <img src="${h.img}" alt="${h.n}" loading="lazy"
+             onerror="this.src='https://placehold.co/400x530/090D1A/D4AF37?text=${encodeURIComponent(h.n)}'">
+        <div class="cg"></div>
+        <span class="cc ${h.cl}">${h.lb}</span>
+      </div>
+      <div class="cb">
+        <h3 class="cn">${h.n}</h3>
+        <p class="cy">${h.y}</p>
+        <p class="cd">${h.d}</p>
+        <button class="cbtn">Ətraflı
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>`).join('');
+  obs();
+}
+
+function renderMovies(){
+  document.getElementById('mgrid').innerHTML=MOVIES.map(m=>`
+    <div class="mc">
+      <div class="mcb" style="background:${m.g}"></div>
+      <div class="mcp"><svg width="13" height="13" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="mco"><p class="mcy">${m.yr}</p><h3 class="mct">${m.ti}</h3><span class="mctp">${m.tp}</span></div>
+    </div>`).join('');
+}
+
+function renderTL(){
+  const line=document.getElementById('tll');
+  TL.forEach((e,i)=>{
+    const d=document.createElement('div');
+    d.className='tli';
+    d.innerHTML=`<div class="tlb"><div class="tly">${e.yr}</div><div class="tle">${e.ev}</div></div><div class="tld"></div>`;
+    line.appendChild(d);
+    if(i<TL.length-1){const sp=document.createElement('div');sp.style.cssText='width:32px;flex-shrink:0';line.appendChild(sp);}
+  });
+}
+
+function openM(i){
+  const h=H[i];
+  const img=document.getElementById('mimg');
+  img.src=h.img;
+  img.onerror=()=>{img.src=`https://placehold.co/400x530/090D1A/D4AF37?text=${encodeURIComponent(h.n)}`};
+  const cat=document.getElementById('mcat2');cat.textContent=h.lb;cat.className=`mcat ${h.cl}`;
+  document.getElementById('mnm2').textContent=h.n;
+  document.getElementById('myr2').textContent=h.y;
+  document.getElementById('mbio2').textContent=h.bio;
+  document.getElementById('mach2').innerHTML=h.a.map(a=>`<li>${a}</li>`).join('');
+  document.getElementById('mov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeM(){document.getElementById('mov').classList.remove('open');document.body.style.overflow='';}
+function co(e){if(e.target===document.getElementById('mov'))closeM();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+
+document.querySelectorAll('.fb3').forEach(b=>b.addEventListener('click',function(){
+  document.querySelectorAll('.fb3').forEach(x=>x.classList.remove('on'));
+  this.classList.add('on');renderH(this.dataset.f);
+}));
+
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('up',scrollY>50));
+
+let cdone=false;
+function doC(){
+  if(cdone)return;cdone=true;
+  document.querySelectorAll('.sn[data-t]').forEach(el=>{
+    const t=+el.dataset.t;let c2=0;const s=t/55;
+    const tm=setInterval(()=>{c2+=s;if(c2>=t){c2=t;clearInterval(tm);}el.textContent=Math.floor(c2)+(t>=20?'+':'');},22);
+    el.removeAttribute('data-t');
+  });
+}
+
+function obs(){
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+  document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+  const sb=document.querySelector('.sb2');
+  if(sb){const so=new IntersectionObserver(es=>{if(es[0].isIntersecting){doC();so.disconnect();}},{threshold:.35});so.observe(sb);}
+}
+
+renderH();renderMovies();renderTL();obs();
+</script>
+
+
+</body></html>
